@@ -19,25 +19,20 @@ namespace CircusTrain
 
             foreach (var animalInWagon in Animals)
             {
-                if (animalInWagon.Carnivore)
-                {
-                    if (animalInWagon.AnimalSize >= animal.AnimalSize)
-                        return false;
-                }
+                if (animalInWagon.Carnivore && animalInWagon.AnimalSize >= animal.AnimalSize)
+                    return false;
 
-                if (!animal.Carnivore) continue;
-
-                if (animal.AnimalSize >= animalInWagon.AnimalSize)
+                if (animal.Carnivore && animal.AnimalSize >= animalInWagon.AnimalSize)
                     return false;
             }
-            
+
             Animals.Add(animal);
             return true;
         }
 
         public bool AnimalFits(Animal animal)
         {
-            return Points + (int) animal.AnimalSize < 10;
+            return Points + (int) animal.AnimalSize <= 10;
         }
     }
 }

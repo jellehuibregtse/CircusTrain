@@ -9,12 +9,7 @@ namespace CircusTrainConsole
     {
         void Run()
         {
-            var smallAnimalsCarnivorous = GetTestAnimals(1, true, AnimalSize.Small); // 1
-            var mediumAnimals = GetTestAnimals(5, false, AnimalSize.Medium); // 0 ^
-            var mediumAnimalsCarnivorous = GetTestAnimals(5, true, AnimalSize.Medium); // 5
-            var largeAnimals = GetTestAnimals(4, false, AnimalSize.Big); // 0
-            var testAnimals = new List<Animal>(smallAnimalsCarnivorous.Concat(mediumAnimals)
-                .Concat(mediumAnimalsCarnivorous).Concat(largeAnimals));
+            var testAnimals = GetTestAnimals(10, false, AnimalSize.Small);
             var distributor = new WagonDistributor(testAnimals);
             
             distributor.Distribute();
