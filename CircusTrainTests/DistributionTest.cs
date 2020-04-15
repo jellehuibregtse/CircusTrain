@@ -8,7 +8,7 @@ namespace CircusTrainTests
     [TestClass]
     public class DistributionTest
     {
-        private List<Animal> GetTestAnimals(int amount, bool isCarnivorous, AnimalSize size)
+        private static List<Animal> GetTestAnimals(int amount, bool isCarnivorous, AnimalSize size)
         {
             var testAnimals = new List<Animal>();
 
