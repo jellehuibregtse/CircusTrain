@@ -5,6 +5,7 @@ namespace CircusTrain
 {
     public class WagonDistributor
     {
+        // A list of all the wagons created.
         public readonly List<Wagon> Wagons = new List<Wagon>();
 
         // List of animals that need to be distributed over n amount of wagons.
@@ -14,7 +15,11 @@ namespace CircusTrain
         {
             _animals = animals;
         }
-        
+
+        /// <summary>
+        /// Distributes all animals in the List over the minimum amount of wagons needed.
+        /// Wagons which are then stored in the wagons list.
+        /// </summary>
         public void Distribute()
         {
             foreach (var animal in _animals)
@@ -24,7 +29,11 @@ namespace CircusTrain
                 AddWagonWithAnimal(animal);
             }
         }
-
+        
+        /// <summary>
+        /// Creates a new wagon and adds the animal to the newly created wagon.
+        /// </summary>
+        /// <param name="animal">The animal that needs a new wagon.</param>
         public void AddWagonWithAnimal(Animal animal)
         {
             var newWagon = new Wagon();

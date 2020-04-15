@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CircusTrain;
-
-namespace CircusTrainConsole
+﻿namespace CircusTrainConsole
 {
     class Program
     {

@@ -8,7 +8,10 @@ namespace CircusTrainConsole
     {
         private readonly List<Animal> _animals = new List<Animal>();
         private WagonDistributor _wagonDistributor;
-
+        
+        /// <summary>
+        /// The start of this program.
+        /// </summary>
         public void Run()
         {
             Console.WriteLine("--- CIRCUS TRAIN ---");
@@ -16,9 +19,12 @@ namespace CircusTrainConsole
             Console.WriteLine("All animals have been added, now starting distribution!");
             _wagonDistributor = new WagonDistributor(_animals);
             _wagonDistributor.Distribute();
-            Print(_wagonDistributor);
+            DisplayDistribution(_wagonDistributor);
         }
-
+        
+        /// <summary>
+        /// Asks the user if one needs another animal to be added.
+        /// </summary>
         private void AskForAnimal()
         {
             while (AskYesOrNo("Would you like to add an animal?"))
@@ -28,7 +34,11 @@ namespace CircusTrainConsole
                 _animals.Add(new Animal(carnivore, size));
             }
         }
-
+        
+        /// <summary>
+        /// Asks the user for the size of said animal.
+        /// </summary>
+        /// <returns>The size as an AnimalSize object.</returns>
         private AnimalSize AskForSize()
         {
             Console.WriteLine("What size is this animal? (small/medium/large)");
@@ -46,7 +56,12 @@ namespace CircusTrainConsole
                 input.Equals("medium") ? AnimalSize.Medium :
                 input.Equals("large") ? AnimalSize.Large : AnimalSize.Small;
         }
-
+        
+        /// <summary>
+        /// Asks a yes or no question.
+        /// </summary>
+        /// <param name="message">The question.</param>
+        /// <returns>The answer as a boolean.</returns>
         private bool AskYesOrNo(string message)
         {
             Console.WriteLine("{0} (yes/no)", message);
@@ -60,8 +75,12 @@ namespace CircusTrainConsole
 
             return input.ToLower().Equals("yes");
         }
-
-        private void Print(WagonDistributor distributor)
+        
+        /// <summary>
+        /// Prints the result after distributing.
+        /// </summary>
+        /// <param name="distributor">The distributor that needs to be displayed.</param>
+        private void DisplayDistribution(WagonDistributor distributor)
         {
             Console.WriteLine("\n--- Wagon Distribution ---\n");
             Console.WriteLine("Total Amount of wagons: {0}", distributor.Wagons.Count);
@@ -73,9 +92,8 @@ namespace CircusTrainConsole
                 for (var j = 0; j < wagon.Animals.Count; j++)
                 {
                     var animal = wagon.Animals[j];
-                    Console.WriteLine("Animal {0} - Size: {1}, Points: {2}, Carnivorous: {3}", j + 1,
-                        animal.AnimalSize.ToString(),
-                        (int) animal.AnimalSize, animal.Carnivore);
+                    Console.WriteLine("Animal {0} - {1}", j + 1,
+                        animal);
                 }
 
                 Console.WriteLine("---------------------------------------------------- +");

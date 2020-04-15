@@ -5,13 +5,19 @@ namespace CircusTrain
 {
     public class Wagon
     {
+        // A list of all animals in the wagon.
         public readonly List<Animal> Animals = new List<Animal>();
-
+        // An integer returning the sum of all points from each animal in the wagon.
         public int Points
         {
             get { return Animals.Sum(animal => (int) animal.AnimalSize); }
         }
-
+        
+        /// <summary>
+        /// Adds an animal to the wagon if the animal fits and if the animal cannot be eaten by other animals.
+        /// </summary>
+        /// <param name="animal">The animal to be added to the wagon.</param>
+        /// <returns>If the animal was added or not.</returns>
         public bool AddAnimal(Animal animal)
         {
             if (!AnimalFits(animal))
@@ -29,7 +35,12 @@ namespace CircusTrain
             Animals.Add(animal);
             return true;
         }
-
+        
+        /// <summary>
+        /// Checks if the animal fits in the wagon.
+        /// </summary>
+        /// <param name="animal">The animal to be added to the wagon.</param>
+        /// <returns>If the animal fits or not.</returns>
         public bool AnimalFits(Animal animal)
         {
             return Points + (int) animal.AnimalSize <= 10;
