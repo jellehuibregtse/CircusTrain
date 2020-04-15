@@ -44,7 +44,7 @@ namespace CircusTrainTests
         [TestMethod]
         public void DistributionTestAllBigAnimals()
         {
-            var testAnimals = GetTestAnimals(10, false, AnimalSize.Big);
+            var testAnimals = GetTestAnimals(10, false, AnimalSize.Large);
             var distributor = new WagonDistributor(testAnimals);
 
             distributor.Distribute();
@@ -80,7 +80,7 @@ namespace CircusTrainTests
             var smallAnimalsCarnivorous = GetTestAnimals(1, true, AnimalSize.Small); // 1
             var mediumAnimals = GetTestAnimals(5, false, AnimalSize.Medium); // 1 extra
             var mediumAnimalsCarnivorous = GetTestAnimals(5, true, AnimalSize.Medium); // 5
-            var largeAnimals = GetTestAnimals(4, false, AnimalSize.Big); // 0
+            var largeAnimals = GetTestAnimals(4, false, AnimalSize.Large); // 0
             var testAnimals = smallAnimalsCarnivorous.Concat(mediumAnimals)
                 .Concat(mediumAnimalsCarnivorous).Concat(largeAnimals).ToList();
             var distributor = new WagonDistributor(testAnimals);
