@@ -19,7 +19,7 @@ namespace CircusTrain
         /// <returns>A string with all the animals information, ready for displaying.</returns>
         public override string ToString()
         {
-            return "Carnivorous: " + Carnivore + ", Size: " + AnimalSize + ", Points: " + (int) AnimalSize;
+            return "Carnivorous: " + Carnivore.ToString() + ", Size: " + AnimalSize.ToString() + ", Points: " + (int) AnimalSize;
         }
     }
 }
