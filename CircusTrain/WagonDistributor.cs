@@ -34,7 +34,7 @@ namespace CircusTrain
         /// Creates a new wagon and adds the animal to the newly created wagon.
         /// </summary>
         /// <param name="animal">The animal that needs a new wagon.</param>
-        public void AddWagonWithAnimal(Animal animal)
+        private void AddWagonWithAnimal(Animal animal)
         {
             var newWagon = new Wagon();
             newWagon.AddAnimal(animal);

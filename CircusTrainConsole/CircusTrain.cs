@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CircusTrain;
 
 namespace CircusTrainConsole
@@ -88,10 +89,11 @@ namespace CircusTrainConsole
             for (var i = 0; i < distributor.Wagons.Count; i++)
             {
                 var wagon = distributor.Wagons[i];
-                Console.WriteLine("Wagon {0}:\n\n{1} animals\n", i + 1, wagon.Animals.Count);
-                for (var j = 0; j < wagon.Animals.Count; j++)
+                var animals = wagon.Animals.ToList();
+                Console.WriteLine("Wagon {0}:\n\n{1} animals\n", i + 1, animals.Count);
+                for (var j = 0; j < animals.Count; j++)
                 {
-                    var animal = wagon.Animals[j];
+                    var animal = animals[j];
                     Console.WriteLine("Animal {0} - {1}", j + 1,
                         animal);
                 }

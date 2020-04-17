@@ -19,7 +19,6 @@ namespace CircusTrainTests
             }
 
             Assert.IsFalse(wagon.AddAnimal(animal));
-            Assert.IsFalse(wagon.AnimalFits(animal));
         }
     }
 }
