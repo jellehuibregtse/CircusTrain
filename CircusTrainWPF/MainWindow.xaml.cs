@@ -81,6 +81,7 @@ namespace CircusTrainWPF
             foreach (var item in items)
                 DistributeInfo.Items.Add(item);
         }
+
         private void AmountOfAnimals_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(AmountOfAnimals.Text))
@@ -98,15 +99,15 @@ namespace CircusTrainWPF
             {
                 var wagon = distributor.Wagons[i];
                 var animals = wagon.Animals.ToList();
-                sb.Add("Wagon "+(i+1)+":\n\n"+animals.Count+" animals\n");
+                sb.Add("Wagon " + (i + 1) + ":\n\n" + animals.Count + " animals\n");
                 for (var j = 0; j < animals.Count; j++)
                 {
                     var animal = animals[j];
-                    sb.Add("Animal "+ (j+1) + " - " + animal);
+                    sb.Add("Animal " + (j + 1) + " - " + animal);
                 }
 
                 sb.Add("---------------------------------------------------- +");
-                sb.Add("Total points: "+ wagon.Points + "\n\n");
+                sb.Add("Total points: " + wagon.Points + "\n\n");
             }
 
             return sb;

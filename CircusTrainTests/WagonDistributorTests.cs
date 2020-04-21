@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CircusTrain;
@@ -18,6 +19,28 @@ namespace CircusTrainTests
             }
 
             return testAnimals;
+        }
+
+        [TestMethod]
+        public void NoEmptyWagonsAfterDistribution()
+        {
+            var random = new Random();
+            var amount = random.Next(0, 100);
+            var isCarnivorous = random.Next(100) <= 50;
+            var values = Enum.GetValues(typeof(AnimalSize));
+            var randomSize = (AnimalSize)values.GetValue(random.Next(values.Length));
+            
+            var testAnimals = GetTestAnimals(amount, isCarnivorous, randomSize);
+            var distributor = new WagonDistributor(testAnimals);
+            
+            distributor.Distribute();
+            var wagons = distributor.Wagons;
+
+            foreach (var wagon in wagons)
+            {
+                Assert.AreNotEqual(0, wagon.Points);
+            }
+
         }
 
         [TestMethod]
